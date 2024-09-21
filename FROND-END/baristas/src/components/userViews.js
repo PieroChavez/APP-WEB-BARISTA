@@ -3,7 +3,7 @@ import React from 'react'
 function userViews() {
   return (
     <div>
-        Hola! usuario gil
+        Hola! usuario gil 
       
     </div>
   )

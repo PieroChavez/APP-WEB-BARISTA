@@ -19,7 +19,7 @@ function Login() {
     });
         console.log(infoUsuario.user.uid);
        // const docuRef = doc(firestore, `usuarios/${infoUsuario.user.uid}`);
-       // setDoc(docuRef, {correo: email, rol: rol});
+       // setDoc(docuRef, {correo: email, rol: rol}); 
 
   }
  // 
@@ -44,7 +44,7 @@ function Login() {
 
   return (
     <div>
-       <h1>{isRegistrando? "Registrate": "INICIA SECION P MANO"} </h1>
+       <h1>{isRegistrando ? "Registrate": "INICIA SECION P MANO"} </h1>
 
 
 
@@ -76,7 +76,7 @@ function Login() {
 
       </from>
          <button onClick={() => setIsRegistrando(!isRegistrando)}>
-        {isRegistrando? "Ya temgo una cuenta": "quiero registrarme"}
+        {isRegistrando? "Ya tengo una cuenta": "quiero registrarme"}
          </button>
       
     </div>
