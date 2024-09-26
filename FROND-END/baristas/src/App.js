@@ -1,32 +1,30 @@
 import './App.css';
-import React, {useState} from 'react';
+import LoginButton from './components/loginButton';
+import LogoutButton from './components/logout';
+import Profile from './components/profile';
+import { useAuth0 } from '@auth0/auth0-react';
 
-import Home from './screens/Home';
-// eslint-disable-next-line no-unused-vars
-import Login from './screens/login';
 
-import firebaseApp from './Firebase/credenciales'
-import {getAuth, onAuthStateChanged} from 'firebase/auth';
 
-const auth = getAuth(firebaseApp);
-
-function App() {
-  const[ user, setUser]= useState (null);
-
-  onAuthStateChanged(auth, (usuarioFirebase)=>{
-    if (usuarioFirebase){
-      setUser(usuarioFirebase);
-    }
-    else{
-      setUser(null);
-    }
-    
+function App(){
+  const { isAuthenticated, isLoading } = useAuth0(); 
+  if (isLoading) {
+    return <div>Loading...</div>; // Mientras Auth0 verifica el estado de autenticación
   }
-//
-)
   
-  return <> { user? <Home/>: <Login/> } </>;
 
+
+  return (
+    <div className="App">
+    <h1> APLICATIONS</h1>
+
+    {isAuthenticated ? <LogoutButton/> : <LoginButton/> }
+    <Profile/>
+   
+
+
+    </div>
+  );
 
 
 }
